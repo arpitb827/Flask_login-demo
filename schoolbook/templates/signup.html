@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>School Book ! Sign In</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<!-- <div class="top">
+			<h1 id="title" class="hidden"><span id="logo">Rail <span>Easy</span></span></h1>
+		</div> -->
+
+		<div >
+			<div >
+				<h2>Sign Up</h2>
+			</div>
+			{% with messages= get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<h3>{{message}}</h3>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			{% for message in form.username.errors %}
+		    <div>UserName :{{ message }}</div>
+		    {% endfor %}
+		    {% for message in form.password.errors %}
+		    <div>Password: {{ message }}</div>
+		    {% endfor %}
+		    {% for message in form.email.errors %}
+		    <div>Email: {{ message }}</div>
+		    {% endfor %}
+			<form action="/signup" method=post autocomplete="off">
+      			<fieldset>
+      				 {{ form.hidden_tag() }}
+      				{{ form.username.label }}
+      				<br/>
+      				{{ form.username}}
+      				<br/>
+      				{{ form.email.label }}
+      				<br/>
+      				{{ form.email}}
+      				<br/>
+      				{{ form.password.label }}
+      				<br/>
+      				{{ form.password}}
+      				<br/>
+				</fieldset>
+			<button type="submit">Save</button>&nbsp;&nbsp;
+			</form>
+			<br/>
+			<a href="/login" style="display:inline"><p class="btn btn-danger">Sign In</p></a> 
+		</div>
+	</div>
+</body>
+
+
+
+</html>
